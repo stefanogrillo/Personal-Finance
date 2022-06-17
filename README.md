@@ -6,6 +6,8 @@ My web application follows the structure of Finance.
 
 It first requires the user to subscribe, forcing the user to insert a password with constraints like: total lenght 8 characters, a lowercase letter, an uppercase letter, and a number. I used JavaScrypt to visualize to the user which constraints are met yet and which not. The password and the username will be stored in a specific SQL table where the password is encrypted.
 
+![](https://github.com/stefanogrillo/Personal-Finance/blob/1e54fda381a3c3be9d48a637a760b8616b80a5e3/register.gif)
+
 Once subscribed, the used can enter the web-app.
 
 The first thing that will be visible is the Index page, where only the last five transactions are visible. Once there, the user can select the specific page he wants to visualize: (1) How to (includes (1.2) Modalities and (1.3) Categories), (2) Insert, (3) Graphs (includes (3.2) Modalities, (3.3) Categories and (3.4) Overtime), (4) History, (5) Change Password, and (6) Log Out. Before entering the app, there are also (7) Register and (8) Log In. In case of errors, the web-app shows the (9) Apology page.
@@ -13,6 +15,10 @@ The first thing that will be visible is the Index page, where only the last five
 ## (1) How to - how1.html; how2.html
 This section is shown as a dropdown menu, create with the aim of showing how to use the application. This means that the subcategories here presented are the list of (1.2) Modalities and (1.3) Categories. Both are simple HTML and CSS pages with no additional code. Modalities are "where" the transaction occurs, while Categories are the "motivation" for that transaction. Both lists are fixed for every user: the choice is constricted from two dedicated SQL tables, so that the user must only choose his/her own between the ones presented.<br>
 Modalities are, for example, cash or debit cards. Categories are, for example, income coming from a gift, or an expense coming from utilities.
+
+![](https://github.com/stefanogrillo/Personal-Finance/blob/1e54fda381a3c3be9d48a637a760b8616b80a5e3/modalities.gif)
+
+![](https://github.com/stefanogrillo/Personal-Finance/blob/1e54fda381a3c3be9d48a637a760b8616b80a5e3/categories.gif)
 
 ## (2) Insert - add.html
 Here the user actually chooses which input to insert in the web-app. This page is linked to the SQL database both from input, via Jinja (for the dropdown menu where the user has to select Modalities and Categories) and from output (the transaction is saved in the *Transaction table in SQL, which saves: id, users' id, date, modality, category, amount, total amount disposable to user).<br>
