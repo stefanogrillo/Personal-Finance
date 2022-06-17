@@ -6,8 +6,6 @@ My web application follows the structure of Finance.
 
 It first requires the user to subscribe, forcing the user to insert a password with constraints like: total lenght 8 characters, a lowercase letter, an uppercase letter, and a number. I used JavaScrypt to visualize to the user which constraints are met yet and which not. The password and the username will be stored in a specific SQL table where the password is encrypted.
 
-![](https://github.com/stefanogrillo/Personal-Finance/blob/1e54fda381a3c3be9d48a637a760b8616b80a5e3/register.gif)
-
 Once subscribed, the used can enter the web-app.
 
 The first thing that will be visible is the Index page, where only the last five transactions are visible. Once there, the user can select the specific page he wants to visualize: (1) How to (includes (1.2) Modalities and (1.3) Categories), (2) Insert, (3) Graphs (includes (3.2) Modalities, (3.3) Categories and (3.4) Overtime), (4) History, (5) Change Password, and (6) Log Out. Before entering the app, there are also (7) Register and (8) Log In. In case of errors, the web-app shows the (9) Apology page.
@@ -24,19 +22,27 @@ Modalities are, for example, cash or debit cards. Categories are, for example, i
 Here the user actually chooses which input to insert in the web-app. This page is linked to the SQL database both from input, via Jinja (for the dropdown menu where the user has to select Modalities and Categories) and from output (the transaction is saved in the *Transaction table in SQL, which saves: id, users' id, date, modality, category, amount, total amount disposable to user).<br>
 This page is made with Jinja (Python), HTML, CSS, and SQL.
 
+![](https://github.com/stefanogrillo/Personal-Finance/blob/58b5b7b8ccabc97102e4c41da6cd0e787de28371/insert.gif)
+
 ## (3) Graphs - chart1.html; chart2.html; chart3.html
 This section is a drop-down menu where the user can choose between three subcategories: (3.2) Modalities, (3.3) Categories and (3.4) Overtime. Modalities represents two graphs: a column chart where each modality is shown as a total amount of its relative transactions, and a pie chart where is easier to see the differences between the modalities. Data is directly inserted via Jinja from the SQL, to Python, to JavaScrypt. The datatypes created are Lists, and the JavaScrypt lybrary used is Chart.js.<br>
 I used the same structure for the Categories, showing each category used as a column, and showing a recap in the pie chart.
 Slightly different presentation occurs in the overtime graph: here I chose to use only one graph, a Line chart, where the whole timeline of transactions can be shown as the "total amount of income disposable to the user". I created this amount summing incomes and subtracting expenses as they occur in each transaction.
 So, to recap, these pages are made with Jinja (Python), HTML, CSS, SQL, and JavaScrypt.
 
+![](https://github.com/stefanogrillo/Personal-Finance/blob/58b5b7b8ccabc97102e4c41da6cd0e787de28371/graphs.gif)
+
 ## (4) History - history.html
 Here every transaction ever is shown whithin a table created with Jinja. Also, the overall disposable cash is displayed at the bottom.<br>
 This page is made with Jinja (Python), SQL, HTML and CSS.
 
+![](https://github.com/stefanogrillo/Personal-Finance/blob/58b5b7b8ccabc97102e4c41da6cd0e787de28371/history.gif)
+
 ## (5) Change Password - change.html
 Here the user has to reinsert his/her username and passwords, so that they can be checked inside the SQL database. As soon as they are confirmed (so that the user's account has not been hacked), the user is allowed to insert a new password, for teo times. The new password follows the same contraints as the one used to register. Once selected, it is inserted inside the SQL database (after being encrypted) instead of the old one.
 This page is made with SQL, Python, HTML, CSS and JavaScrypt.
+
+![](https://github.com/stefanogrillo/Personal-Finance/blob/58b5b7b8ccabc97102e4c41da6cd0e787de28371/reinsert%20password.png)
 
 ## (6) Log Out
 Log out button from the application.
@@ -45,12 +51,18 @@ Log out button from the application.
 Here the user is forced to follow a similar path to the one already seen in (5) Change Password. In this passage, the user inserts a username and a password, which follows the same constraints already seen. A JavaScrypt code is added to visualize to the user which constraints are already met.
 This page is made with Jinja (Python), HTML, CSS, SQL, and JavaScrypt.
 
+![](https://github.com/stefanogrillo/Personal-Finance/blob/1e54fda381a3c3be9d48a637a760b8616b80a5e3/register.gif)
+
 ## (8) Log In - login.html
 In this page the user actually enters the application. He/she has to insert username and password, which are checked whithin the SQL database, and in case of presence, the user is allowed to enter the web-app.
 This page is made with Python, HTML, CSS, and SQL.
 
+![](https://github.com/stefanogrillo/Personal-Finance/blob/58b5b7b8ccabc97102e4c41da6cd0e787de28371/login.png)
+
 ## (9) Apology - apology.html
 This page is an auto-generated page that aims to show to the user that an error has occurred, but in a funny way. The Meme is updated with the text corresponding to the error occurred, which is written in Python and moved to HTML with Jinja.
+
+![](https://github.com/stefanogrillo/Personal-Finance/blob/d56cd601c31c33b29fa0ac8944ae56c663d72ff6/error.gif)
 
 ## FILES
 The projact follows the following Flask structure:<br>
